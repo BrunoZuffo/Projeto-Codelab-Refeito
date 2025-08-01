@@ -1,98 +1,138 @@
-# 🧠 CodelabS Checker – API REST em Node.js
+# CodelabS Checker API
 
-**Área:** Backend – Desenvolvimento de API  
-**Tecnologias:** Node.js + Express.js
+> **Backend Project** · **Node.js + Express.js** · **Practical Development Challenge (USP CodeLab Boost)**
 
-## ✨ Sobre o projeto
+Welcome, Codelaber! 🎓
 
-Este projeto foi desenvolvido como parte do desafio de férias do [USP CodeLab](https://codelab.dev.br), com o objetivo de criar uma API REST que ajude a combater os inúmeros erros na escrita do nome do nosso grupo.
+Before diving into the amazing journey of joining the best tech extension group at USP — the **USP CodeLab** — you must first help solve a pressing internal crisis.
 
-Muitas pessoas ainda insistem em variações como:
+## ❗ The Problem
 
-- `Codelabs`
-- `Code labe`
-- `Codalab`
-- `Codeslab`
-- `Codeleb`
-- e outras variações absurdas…
+Although we proudly carry the name **"Codelab"**, it seems that *no one knows how to spell it right*.
 
-Nossa missão? Monitorar, registrar e organizar esses erros — transformando frustração em dados úteis!
+From emails to official documents and even within our community, the group name has been repeatedly miswritten as:
 
----
+- Code labe  
+- Cod lab  
+- Codalab  
+- Codeslab  
+- Codeleb  
+- And the most socially viral: **CodelabS**
 
-## 🔧 Como funciona
+Our project leads, **Shogo** and **Otavio**, shared their frustration during a Boost meeting — and that's when this challenge was born.
 
-A API centraliza a coleta dos nomes digitados e armazena dois grupos:
+## 🚀 The Mission
 
-- ✅ Nomes corretos (`"codelab", e quaisquer outras variações maiúsculas ou minúsculas`)
-- ❌ Nomes incorretos (qualquer outro)
+Your mission is to build a **RESTful API** in **Node.js** to track and analyze all name submissions — both correct and incorrect — helping us quantify the scale of this spelling epidemic and take action.
 
-Esses dados são salvos em um arquivo `nomes.json`, e podem ser analisados depois.
+This backend service will serve as the foundation for future integrations, such as websites or Telegram bots.
 
 ---
 
-## 🚀 Como rodar o projeto
+## 🧠 What You'll Build
 
-1. Clone o repositório:
+A centralized, lightweight, and fun API that:
+
+- Accepts name submissions  
+- Logs whether they are correct or incorrect  
+- Stores everything in a structured `.json` database  
+- Can be used as a data source for dashboards, bots, or internal tools  
+
+---
+
+## 📂 Project Structure
+
+```bash
+.
+├── nomes.json          # Local JSON "database"
+├── index.js            # Main server file with all logic
+├── package.json        # Dependencies and scripts
+└── README.md           # You're here!
+```
+
+---
+
+## ⚙️ Technologies Used
+
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [fs](https://nodejs.org/api/fs.html) for file system handling
+- [path](https://nodejs.org/api/path.html) for file paths
+
+---
+
+## 🛠️ How to Run Locally
+
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/BrunoZuffo/projeto-codelab.git
+   git clone https://github.com/your-username/codelabs-checker-api.git
+   cd codelabs-checker-api
    ```
 
-2. Instale as dependências:
+2. Install dependencies:
+
    ```bash
    npm install
    ```
 
-3. Inicie o servidor com:
+3. Run the server:
+
    ```bash
-   npm run dev
+   node index.js
    ```
 
-O servidor estará disponível em:  
-📍 `http://localhost:3000`
+4. Access the API at:  
+   **`http://localhost:3000`**
 
 ---
 
-## 📮 Endpoints disponíveis
+## 📌 Endpoints
 
 ### `GET /`
-
-- Retorna uma mensagem de boas-vindas da API.
+Returns a simple welcome message to confirm the API is running.
 
 ---
 
-### `POST /nome`
+### `POST /nomes`
 
-- Envie um corpo JSON com um nome:
+Submits a name and stores whether it's correct or not.
+
+**Request body:**
 
 ```json
 {
-  "nome": "codelab"
+  "nome": "Codelab"
 }
 ```
 
-- A API irá:
+**Responses:**
 
-  - Verificar se o nome é igual a `"codelab"`
-  - Registrar como **correto** ou **incorreto** no arquivo `nomes.json`
-  - Retornar uma mensagem indicando o resultado
+- `201 Created` → `{ "mensagem": "Nome correto!" }`
+- `201 Created` → `{ "mensagem": "Nome incorreto!" }`
+
+All submissions are timestamped and saved in `nomes.json`.
 
 ---
 
-## 📁 Estrutura do banco de dados (`nomes.json`)
+## 🧪 Example Data Output
 
 ```json
 {
   "corretos": [
     {
-      "nome": "codelab",
-      "data": "2025-08-01T03:15:22.711Z"
+      "nome": "Codelab",
+      "data": "2025-08-01T11:21:57.752Z"
     }
   ],
   "incorretos": [
     {
-      "nome": "codelabs",
-      "data": "2025-08-01T03:17:08.152Z"
+      "nome": "CodelabS",
+      "data": "2025-08-01T11:21:11.562Z"
+    },
+    {
+      "nome": "Codelaber",
+      "data": "2025-08-01T11:21:50.787Z"
     }
   ]
 }
@@ -100,6 +140,19 @@ O servidor estará disponível em:
 
 ---
 
-## 🤓 Autor
+## 🤓 About the Challenge
 
-Projeto feito com 💜 por Bruno Zuffo durante o recesso, como parte da missão de proteger a identidade do grupo CodeLab.
+This API was developed as part of the **Boost challenge**, a practical backend project proposed by **USP CodeLab**, the university’s most innovative and engaging technology group.
+
+By combining problem-solving with technical implementation, this project aims to teach:
+
+- RESTful API development  
+- File-based data persistence  
+- Express.js routing and logic handling  
+- Fun ways to reinforce brand consistency 😉
+
+---
+
+## 👨‍💻 Author
+
+Made with 💜 by a proud **Codelaber**, Bruno Zuffo.
