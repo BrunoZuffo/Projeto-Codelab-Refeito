@@ -24,7 +24,7 @@ Nossa missão? Monitorar, registrar e organizar esses erros — transformando fr
 
 A API centraliza a coleta dos nomes digitados e armazena dois grupos:
 
-- ✅ Nomes corretos (`"codelab"`)
+- ✅ Nomes corretos (`"codelab", e quaisquer outras variações maiúsculas ou minúsculas`)
 - ❌ Nomes incorretos (qualquer outro)
 
 Esses dados são salvos em um arquivo `nomes.json`, e podem ser analisados depois.
